@@ -506,7 +506,7 @@ else:
     steps_cal_corr = valid_full["TotalSteps"].corr(valid_full["Calories"])
     steps_sleep_corr = full_sleep["TotalSteps"].corr(full_sleep["SleepHours"])
 
-    st.markdown("### Main findings")
+    st.markdown("### Key findings")
     findings = [
         f"The dataset covers {daily_all['Id'].nunique()} participants and {len(daily_all):,} daily activity records.",
         f"After excluding {int(daily_all['PossibleNonWearDay'].sum())} possible non-wear days, average daily steps are {valid_full['TotalSteps'].mean():,.0f}.",
