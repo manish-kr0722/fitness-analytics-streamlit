@@ -39,3 +39,6 @@ The original second-level heart-rate file is not required when running the app. 
 ## Deploy on Streamlit Community Cloud
 
 Upload this folder to a GitHub repository, create a new Streamlit app, and select `app.py` as the entry point. The included `requirements.txt` and `.streamlit/config.toml` provide the required environment and theme.
+
+## My App Link
+https://fitness-analytics-app-wnhyjkst8nzfp9wwa5pwxv.streamlit.app/
