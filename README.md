@@ -1,44 +1,89 @@
-# Fitness Analytics Streamlit App
+# Fitness Activity and Recovery Analytics
 
-Interactive dashboard for the Bellabeat / Fitbit fitness-data case study. The app uses compact prepared datasets, global filters, KPI cards, 20 Plotly charts, key findings, data-quality notes, and CSV downloads.
+**Python • Pandas • Plotly • Streamlit | Fitbit/Bellabeat case study**
+
+An interactive dashboard exploring daily activity, sleep, hourly movement and data completeness.
+
+## Business question
+
+What activity and recovery patterns appear in the sample, and what engagement ideas could a wellness product test?
+
+## Data
+
+The prepared daily dataset contains **940 participant-day records across 33 participants**. An hourly dataset supports movement and energy-use comparisons.
+
+The data contains repeated observations per participant; participant-days are not independent people.
+
+## Application pages
+
+1. Executive Overview.
+2. Activity Analysis.
+3. Sleep & Recovery.
+4. Hourly & Heart Rate.
+5. Insights & Data Quality.
+
+The app contains 20 numbered chart views, participant/date filters, optional exclusion of possible non-wear days and CSV downloads.
+
+[Open the published app](https://fitness-analytics-app-wnhyjkst8nzfp9wwa5pwxv.streamlit.app/)
+
+## Findings
+
+Using the prepared daily data after excluding records flagged as possible non-wear days:
+
+| Measure | Result |
+|---|---:|
+| Average daily steps | Approximately 8,319 |
+| Average sleep in available sleep records | Approximately 7.04 hours |
+| Available sleep records below seven hours | 43.90% |
+
+The sleep percentage uses available sleep records, not every activity record. App values change with filters.
+
+## Recommendations
+
+Test gradual step milestones, movement reminders and sleep-consistency messaging. Measure uptake and behaviour changes before claiming product impact.
 
 ## Run locally
 
-On Windows, you can double-click `run_app.bat` to install the required packages and start the dashboard.
+~~~bash
+git clone https://github.com/manish-kr0722/fitness-analytics-streamlit.git
+cd fitness-analytics-streamlit
+python -m venv .venv
+~~~
 
-For a terminal-based setup:
+Activate the environment:
 
-1. Open a terminal in this folder.
-2. Install the packages:
+~~~bash
+# Windows PowerShell
+.venv\Scripts\Activate.ps1
 
-   ```bash
-   pip install -r requirements.txt
-   ```
+# macOS / Linux
+source .venv/bin/activate
+~~~
 
-3. Start the app:
+~~~bash
+python -m pip install -r requirements.txt
+python -m streamlit run app.py
+~~~
 
-   ```bash
-   streamlit run app.py
-   ```
+The app uses files in the data folder relative to app.py. The original second-level heart-rate export is not required to run the app.
 
-## Dashboard pages
+## Limitations
 
-- Executive Overview
-- Activity Analysis
-- Sleep & Recovery
-- Hourly & Heart Rate
-- Insights & Data Quality
+This is a small, self-selected sample covering a short period. Sleep, weight and heart-rate coverage differ. Possible non-wear days are rule-based flags rather than confirmed device non-use.
 
-## Included data
+Associations do not establish causal effects. The dashboard is not a medical diagnostic tool. This repository contains prepared datasets and the app; it does not include the complete raw-to-prepared SQL pipeline.
 
-- `data/daily_fitness_master.csv`: one record per participant and activity date, with sleep, weight, and daily heart-rate summaries where available.
-- `data/hourly_activity_master.csv`: joined hourly steps, calories, and intensity.
+## Repository files
 
-The original second-level heart-rate file is not required when running the app. Participant IDs are anonymous. The analysis is descriptive and does not support medical diagnosis or causal claims.
+- [app.py](app.py)
+- [data/daily_fitness_master.csv](data/daily_fitness_master.csv)
+- [data/hourly_activity_master.csv](data/hourly_activity_master.csv)
+- [requirements.txt](requirements.txt)
+- [run_app.bat](run_app.bat)
+- [run_app.sh](run_app.sh)
 
-## Deploy on Streamlit Community Cloud
+## Author
 
-Upload this folder to a GitHub repository, create a new Streamlit app, and select `app.py` as the entry point. The included `requirements.txt` and `.streamlit/config.toml` provide the required environment and theme.
+**Manish Kumar** — banking professional transitioning into Data Analytics.
 
-## My App Link
-https://fitness-analytics-app-wnhyjkst8nzfp9wwa5pwxv.streamlit.app/
+[LinkedIn](https://www.linkedin.com/in/manish071096/) · [GitHub](https://github.com/manish-kr0722)
